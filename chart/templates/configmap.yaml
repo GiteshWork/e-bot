@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "enterprisebot-demo.fullname" . }}-config
+  labels:
+    {{- include "enterprisebot-demo.labels" . | nindent 4 }}
+data:
+  APP_NAME: {{ .Values.config.appName | quote }}
+  VERSION: {{ .Values.config.version | quote }}
